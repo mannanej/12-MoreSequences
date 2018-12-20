@@ -19,12 +19,12 @@ def main():
     run_test_make_less_simple_string()
 
     # -------------------------------------------------------------------------
-    # TODO: 8. Uncomment the tests below before working _TODO_ 9.
+    # DONE: 8. Uncomment the tests below before working _TODO_ 9.
     #   They launch annoying rg.RoseWindows on each run that you don't want
     #   until you get to _TODO_ 9 and _TODO_ 10.
     # -------------------------------------------------------------------------
-    # run_test_draw_shapes()
-    # run_test_rectangles_from_circles()
+    run_test_draw_shapes()
+    run_test_rectangles_from_circles()
 
 
 def run_test_make_simple_list():
@@ -191,9 +191,9 @@ def make_less_simple_string(m, n):
       :type m: int
       :type n: int
     """
-    lists = ''
+    lists = ''                                                                  # This one has a dash that it shouldn't
     for k in range(m, n + 1):
-        lists = lists + '-' + str(k)
+        lists = lists + str(k) + '-'
     return lists
     # -------------------------------------------------------------------------
     # TODO: 7. Implement and test this function.
@@ -278,6 +278,10 @@ def draw_shapes(shapes, window):
       :type shapes:  list | tuple of rg._Shape
       :type window:  rg.RoseWindow
     """
+    for k in range(len(shapes)):                                                # Do it with a delay, not click
+        shapes[k].attach_to(window)
+        window.render()
+        window.continue_on_mouse_click()
     # -------------------------------------------------------------------------
     # TODO: 9. Implement and test this function.
     #             *** Make sure you do _TODO_ 8 in main first! ***
@@ -390,6 +394,8 @@ def rectangles_from_circles(circles):
       :type circles:  list | tuple of rg.Circle
       :rtype: list of rg.Rectangles
     """
+    for k in range(len(circles)):                                               # What?????
+        return rg.Rectangle(rg.Point())
     # -------------------------------------------------------------------------
     # TODO: 10. Implement and test this function.
     #     The testing code is already written for you (above).
