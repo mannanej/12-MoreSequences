@@ -6,8 +6,8 @@ one item at a time, using the ACCUMULATOR pattern.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Eddie Mannan.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -30,7 +30,7 @@ def main():
 def run_test_make_simple_list():
     """ Tests the   make_simple_list    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  make_simple_list  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -48,7 +48,16 @@ def run_test_make_simple_list():
     print('Actual:  ', actual)
 
     # Test 2 (add your test here):
+    expected = [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+    actual = make_simple_list(90, 100)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
+    # Test 3:
+    expected = [69, 70]
+    actual = make_simple_list(69, 70)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def make_simple_list(m, n):
     """
@@ -68,8 +77,12 @@ def make_simple_list(m, n):
       :type m: int
       :type n: int
     """
+    lists = []
+    for k in range(m, n + 1):
+        lists = lists + [k]
+    return lists
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
 
@@ -77,7 +90,7 @@ def make_simple_list(m, n):
 def run_test_make_simple_string():
     """ Tests the   make_simple_string    function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  make_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -88,6 +101,17 @@ def run_test_make_simple_string():
     print('Testing the   make_simple_string   function:')
     print('--------------------------------------------------')
 
+    # Test 1:
+    expected = '4-5-6-7-8-9-'
+    actual = make_simple_string(4, 9)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = '67-68-69-'
+    actual = make_simple_string(67, 69)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def make_simple_string(m, n):
     """
@@ -109,8 +133,12 @@ def make_simple_string(m, n):
       :type m: int
       :type n: int
     """
+    lists = ''
+    for k in range(m, n + 1):
+        lists = lists + str(k) + '-'
+    return lists
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
 
@@ -118,7 +146,7 @@ def make_simple_string(m, n):
 def run_test_make_less_simple_string():
     """ Tests the   make_less_simple_string    function. """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  make_less_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -129,6 +157,17 @@ def run_test_make_less_simple_string():
     print('Testing the   make_less_simple_string   function:')
     print('--------------------------------------------------')
 
+    # Test 1:
+    expected = '1-2-3'
+    actual = make_less_simple_string(1, 3)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = '3-4-5-6'
+    actual = make_less_simple_string(3, 6)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def make_less_simple_string(m, n):
     """
@@ -152,6 +191,10 @@ def make_less_simple_string(m, n):
       :type m: int
       :type n: int
     """
+    lists = ''
+    for k in range(m, n + 1):
+        lists = lists + '-' + str(k)
+    return lists
     # -------------------------------------------------------------------------
     # TODO: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
