@@ -11,7 +11,6 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import rosegraphics as rg
 
-
 def main():
     """ Calls the various   TEST   functions in this module. """
     run_test_make_simple_list()
@@ -191,12 +190,12 @@ def make_less_simple_string(m, n):
       :type m: int
       :type n: int
     """
-    lists = ''                                                                  # This one has a dash that it shouldn't
-    for k in range(m, n + 1):
-        lists = lists + str(k) + '-'
+    lists = str(m)
+    for k in range(m + 1, n + 1):
+        lists = lists + '-' + str(k)
     return lists
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
 
@@ -278,12 +277,16 @@ def draw_shapes(shapes, window):
       :type shapes:  list | tuple of rg._Shape
       :type window:  rg.RoseWindow
     """
-    for k in range(len(shapes)):                                                # Do it with a delay, not click
+    for k in range(3):
         shapes[k].attach_to(window)
+        window.render()
+    window.continue_on_mouse_click()
+    for k in range(len(shapes) - 3):
+        shapes[k + 3].attach_to(window)
         window.render()
         window.continue_on_mouse_click()
     # -------------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #             *** Make sure you do _TODO_ 8 in main first! ***
     # The testing code is already written for you; you enabled it via _TODO_ 8.
     #
@@ -394,10 +397,15 @@ def rectangles_from_circles(circles):
       :type circles:  list | tuple of rg.Circle
       :rtype: list of rg.Rectangles
     """
-    for k in range(len(circles)):                                               # What?????
-        return rg.Rectangle(rg.Point())
+    lists = []
+    for k in range(len(circles)):
+        circle = circles[k]
+        corner1 = rg.Point(circle.center.x - circle.radius, circle.center.y - circle.radius)
+        corner2 = rg.Point(circle.center.x + circle.radius, circle.center.y + circle.radius)
+        lists = lists + [rg.Rectangle(corner1, corner2)]
+    return lists
     # -------------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ###########################################################################
